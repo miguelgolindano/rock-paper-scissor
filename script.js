@@ -43,9 +43,11 @@ for(let i = 0; i <= 4; i++) {
 
 function printScores() {
   console.log(`this is your score: ${humanScore}`) 
-  console.log(`this is the computer score: ${computerScore}`) 
+  console.log(`this is the computer score: ${computerScore}`)
+  console.log('-----------------------------------')
 }
 
+// playGame let the program compare results and choose a winner
 function playGame() {
   
   const humanSelection = getHumanChoice();
@@ -53,13 +55,19 @@ function playGame() {
   
   playRound(humanSelection, computerSelection);
 
+  /* this function use a switch and let select the winner comparing the humanChoice 
+    against the computerChoice and add a score on the winner counter */
   function playRound(humanChoice, computerChoice) {
-    // this switch let select the winner comparing the humanChoice against the computerChoice
+    
+    /* this switch let select the winner comparing the humanChoice 
+    against the computerChoice and add a score on the winner counter */
+
     switch(humanChoice) {
     
       case 'paper':      
         if (computerChoice == 'paper') {
           console.log('It\'s a draw!');
+          printScores()
         }
         else if (computerChoice == 'rock') {
           console.log('You win : Paper beats Rock!');
@@ -82,6 +90,7 @@ function playGame() {
         }
         else if (computerChoice == 'rock') {
           console.log('It\'s a draw!');
+          printScores()
         }
   
         else if (computerChoice == 'scissor') {
@@ -106,27 +115,16 @@ function playGame() {
   
         else if (computerChoice == 'scissor') {
           console.log('It\'s a draw!');
+          printScores()
         }
 
         break;
       
       default:
         console.log('Check your spell');
+        console.log('-----------------------------------')
     }
 
   }
 
 }
-
-
-
-
-
-
-
-
-
-/*
-console.log(getComputerChoice());
-console.log(getHumanChoice());
-*/
