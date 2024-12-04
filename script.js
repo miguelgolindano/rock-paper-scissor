@@ -1,4 +1,6 @@
 let roundTimes = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 // this function let the computer choice using a random number
 function getComputerChoice() {
@@ -27,7 +29,7 @@ function getHumanChoice() {
 }
 
 
-for(let i = 0; i <= 5; i++) {
+for(let i = 0; i <= 4; i++) {
       
   playGame();
   
@@ -39,17 +41,20 @@ for(let i = 0; i <= 5; i++) {
 
 }
 
+function printScores() {
+  console.log(`this is your score: ${humanScore}`) 
+  console.log(`this is the computer score: ${computerScore}`) 
+}
+
 function playGame() {
   
-  let humanScore = 0;
-  let computerScore = 0;
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
   
   playRound(humanSelection, computerSelection);
 
   function playRound(humanChoice, computerChoice) {
-
+    // this switch let select the winner comparing the humanChoice against the computerChoice
     switch(humanChoice) {
     
       case 'paper':      
@@ -59,11 +64,13 @@ function playGame() {
         else if (computerChoice == 'rock') {
           console.log('You win : Paper beats Rock!');
           humanScore++
+          printScores() 
         }
   
         else if (computerChoice == 'scissor') {
           console.log('You lose : Scissor beats Paper!');
           computerScore++
+          printScores()
         }
         break;
     
@@ -71,6 +78,7 @@ function playGame() {
         if (computerChoice == 'paper') {
           console.log('You lose : Scissor beats Paper!');
           computerScore++
+          printScores() 
         }
         else if (computerChoice == 'rock') {
           console.log('It\'s a draw!');
@@ -79,6 +87,7 @@ function playGame() {
         else if (computerChoice == 'scissor') {
           console.log('You win : Paper beats Rock!');
           humanScore++
+          printScores() 
         }
         break;
   
@@ -86,11 +95,13 @@ function playGame() {
         if (computerChoice == 'paper') {
           console.log('You win : Paper beats Rock!');
           humanScore++
+          printScores() 
         }
         
         else if (computerChoice == 'rock') {
           console.log('You lose : Scissor beats Paper!');
-          computerScore++        
+          computerScore++
+          printScores()    
         }
   
         else if (computerChoice == 'scissor') {
